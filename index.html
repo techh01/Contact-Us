@@ -1,289 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us — TECHH</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us — TECHH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
-    rel="stylesheet"
-  />
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 24px;
+      }
 
-  <style>
-    /* CSS Variables for easy theme control */
-    :root {
-      --bg-color: #0d1117;
-      --container-bg: #161b22;
-      --text-color: #c9d1d9;
-      --accent-color: #58a6ff;
-      --accent-color-hover: #1f6feb;
-      --input-bg: #0d1117;
-      --input-border: #30363d;
-      --input-focus-border: var(--accent-color);
-      --button-bg: var(--accent-color);
-      --button-hover-bg: var(--accent-color-hover);
-      --error-color: #f85149;
-      --success-color: #2ea043;
-      --shadow-light: rgba(255, 255, 255, 0.1);
-      --shadow-dark: rgba(0, 0, 0, 0.7);
-    }
-
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1.6;
-    }
-
-    main.container {
-      background: var(--container-bg);
-      border-radius: 16px;
-      max-width: 480px;
-      width: 100%;
-      padding: 3rem 2.5rem;
-      box-shadow:
-        8px 8px 15px var(--shadow-dark),
-        -8px -8px 15px var(--shadow-light);
-      transition: box-shadow 0.3s ease;
-    }
-
-    main.container:hover {
-      box-shadow:
-        12px 12px 20px var(--shadow-dark),
-        -12px -12px 20px var(--shadow-light);
-    }
-
-    h1 {
-      text-align: center;
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 0.25rem;
-      letter-spacing: 1.2px;
-      color: white;
-      user-select: none;
-    }
-
-    p.subtitle {
-      text-align: center;
-      font-weight: 500;
-      color: #8b949e;
-      margin-bottom: 2.5rem;
-      font-size: 1.1rem;
-    }
-
-    form {
-      display: grid;
-      gap: 1.8rem;
-    }
-
-    label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--text-color);
-      user-select: none;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      background: var(--input-bg);
-      border: 2px solid var(--input-border);
-      padding: 0.75rem 1rem;
-      border-radius: 12px;
-      font-size: 1rem;
-      color: var(--text-color);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Inter', sans-serif;
-      resize: vertical;
-    }
-
-    input::placeholder,
-    textarea::placeholder {
-      color: #6e7781;
-      font-style: italic;
-    }
-
-    input:focus,
-    textarea:focus {
-      border-color: var(--input-focus-border);
-      box-shadow: 0 0 8px var(--accent-color);
-      outline: none;
-    }
-
-    button[type="submit"] {
-      width: 100%;
-      background-color: var(--button-bg);
-      color: white;
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 1.15rem;
-      border: none;
-      border-radius: 16px;
-      cursor: pointer;
-      box-shadow:
-        0 4px 10px rgba(88, 166, 255, 0.6);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-
-    button[type="submit"]:hover:not(:disabled) {
-      background-color: var(--button-hover-bg);
-      box-shadow:
-        0 6px 14px rgba(31, 111, 235, 0.8);
-    }
-
-    button[type="submit"]:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      box-shadow: none;
-    }
-
-    .confirmation-message {
-      text-align: center;
-      font-weight: 600;
-      margin-top: 1.5rem;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: opacity 0.4s ease, max-height 0.4s ease;
-      user-select: none;
-    }
-
-    .confirmation-message.visible {
-      opacity: 1;
-      max-height: 100px;
-    }
-
-    /* Responsive */
-    @media (max-width: 520px) {
-      main.container {
-        padding: 2rem 1.5rem;
+      .container {
+        background-color: #0a0a0a;
+        border-radius: 16px;
+        padding: 48px 36px;
+        max-width: 520px;
+        width: 100%;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.04);
+        transition: all 0.3s ease;
       }
 
       h1 {
-        font-size: 2rem;
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 12px;
       }
-    }
-  </style>
-</head>
-<body>
-  <main class="container" role="main" aria-labelledby="page-title">
-    <h1 id="page-title">Contact Us</h1>
-    <p class="subtitle">Fill out this form and we'll get back to you shortly.</p>
 
-    <form id="contactForm" action="https://getform.io/f/bgdljrxa" method="POST" novalidate>
-      <div class="input-group">
-        <label for="name">Full Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          placeholder="Jane Doe"
-          aria-required="true"
-          autocomplete="name"
-        />
-      </div>
+      .subtitle {
+        text-align: center;
+        font-size: 1rem;
+        color: #bbb;
+        margin-bottom: 36px;
+      }
 
-      <div class="input-group">
-        <label for="email">Email Address</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          required
-          placeholder="you@example.com"
-          aria-required="true"
-          autocomplete="email"
-        />
-      </div>
+      .input-group {
+        margin-bottom: 24px;
+      }
 
-      <div class="input-group">
-        <label for="subject">Subject</label>
-        <input
-          type="text"
-          id="subject"
-          name="subject"
-          required
-          placeholder="Brief summary"
-          aria-required="true"
-        />
-      </div>
+      label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
 
-      <div class="input-group">
-        <label for="message">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          placeholder="How can we help you?"
-          aria-required="true"
-        ></textarea>
-      </div>
+      input,
+      textarea {
+        width: 100%;
+        padding: 14px 16px;
+        background-color: #111;
+        color: #fff;
+        border: 1.5px solid #333;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: border 0.3s, box-shadow 0.3s;
+      }
 
-      <button type="submit" id="submitBtn" aria-live="polite">Send Message</button>
-      <p id="confirmation" class="confirmation-message" role="alert" aria-live="assertive"></p>
-    </form>
-  </main>
+      input:focus,
+      textarea:focus {
+        border-color: #fff;
+        box-shadow: 0 0 10px #fff;
+        outline: none;
+      }
 
-  <script>
-    const form = document.getElementById('contactForm');
-    const confirmation = document.getElementById('confirmation');
-    const submitBtn = document.getElementById('submitBtn');
+      button {
+        width: 100%;
+        padding: 16px;
+        background: #fff;
+        color: #000;
+        font-weight: 700;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+      button:hover {
+        background: #eaeaea;
+      }
 
-      confirmation.classList.remove('visible');
-      confirmation.style.color = 'var(--success-color)';
-      confirmation.textContent = '';
+      .confirmation-message {
+        text-align: center;
+        margin-top: 24px;
+        font-weight: 600;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Sending...';
+      .confirmation-message.visible {
+        opacity: 1;
+      }
 
-      const formData = new FormData(form);
-
-      try {
-        const response = await fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: { Accept: 'application/json' },
-        });
-
-        if (response.ok) {
-          confirmation.textContent = 'Thank you! We will be in touch shortly.';
-          confirmation.style.color = 'var(--success-color)';
-          confirmation.classList.add('visible');
-          form.reset();
-        } else {
-          throw new Error('Submission failed');
+      @media (max-width: 540px) {
+        .container {
+          padding: 32px 20px;
         }
-      } catch (err) {
-        confirmation.textContent = 'Oops! Something went wrong. Please try again.';
-        confirmation.style.color = 'var(--error-color)';
-        confirmation.classList.add('visible');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Message';
       }
-    });
-  </script>
-</body>
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Contact Us</h1>
+      <p class="subtitle">Fill out the form and we'll be in touch.</p>
+
+      <form id="contactForm" action="https://getform.io/f/bgdljrxa" method="POST" novalidate>
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Doe" />
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+        </div>
+
+        <div class="input-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="What’s this about?" />
+        </div>
+
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="How can we help you?"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn">Send Message</button>
+        <p id="confirmation" class="confirmation-message" aria-live="polite"></p>
+      </form>
+    </main>
+
+    <script>
+      const form = document.getElementById('contactForm');
+      const confirmation = document.getElementById('confirmation');
+      const submitBtn = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        confirmation.classList.remove('visible');
+        confirmation.style.color = '#6bd36b'; // Success green
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { Accept: 'application/json' }
+          });
+
+          if (response.ok) {
+            confirmation.textContent = 'Thank you! We’ll be in touch shortly.';
+            confirmation.classList.add('visible');
+            form.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+        } catch (err) {
+          confirmation.textContent = 'Oops! Something went wrong. Please try again.';
+          confirmation.style.color = '#e63946'; // Error red
+          confirmation.classList.add('visible');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Send Message';
+        }
+      });
+    </script>
+  </body>
 </html>
